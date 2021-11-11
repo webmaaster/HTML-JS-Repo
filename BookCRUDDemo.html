@@ -5,6 +5,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>ADD A BOOK</h1>
+<label for="bookTitle">Title : </label>
+<input type="text" id="bookTitle"/>
+<label for="bookAuthor">Author : </label>
+<input type="text" id="bookAuthor"/>
+<label for="bookGenre">Genre : </label>
+<input type="text" id="bookGenre"/>
+<label for="bookCost">Cost : </label>
+<input type="text" id="bookCost"/>
+<button type="button" onclick="addBook()">ADD BOOK</button>
 <h1>LIST OF BOOKS</h1>
 <table id="bookDisplay" border=1>
 <script>
@@ -47,6 +57,7 @@ function loadBook(){
 		<th>BOOK GENRE</th>
 		<th>BOOK COST</th>
 		<th></th>
+		<th></th>
 	</tr>`;
 
 	allBooks.forEach((book)=>{
@@ -58,6 +69,7 @@ function loadBook(){
 		<td>${book.book_genre}</td>
 		<td>${book.book_cost}</td>
 		<td><button type="button" onclick="removeBook(${book.id})">-</button></td>
+		<td><button type="button" onclick="updateBook(${book.id})">Edit</button></td>
 		</tr>`;
 		});	
 }
@@ -65,7 +77,7 @@ function loadBook(){
 loadBook();
 
 function removeBook(bookId){
-	alert(bookId);
+	//alert(bookId);
 	// logic to remove the book with matching bookId
 	allBooks.forEach((book, index)=> {
 		if(book.id == bookId){
@@ -75,6 +87,34 @@ function removeBook(bookId){
 	// reload the data
 	loadBook();
 }
+
+function addBook(){
+	alert("add called");
+	alert(allBooks[allBooks.length-1].id + 1);
+	// construct on object literal
+	var insertBook = {
+			id: allBooks[allBooks.length-1].id + 1,
+			book_title: document.getElementById("bookTitle").value,
+			book_author: document.getElementById("bookAuthor").value ,
+			book_genre: document.getElementById("bookGenre").value,
+			book_cost: document.getElementById("bookCost").value,
+			book_image_url: "",
+			book_removed: false
+	}
+	
+	// push the object literal into the array allBooks
+	allBooks.push(insertBook);
+	
+	//reload the data
+	loadBook();
+	
+}
+
+function updateBook(bookId){
+	
+	
+}
+
 </script>
 </body>
 </html>

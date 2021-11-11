@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>LIST OF BOOKS</h1>
-<table id="book" border=1>
+<table id="bookDisplay" border=1>
 <script>
 var allBooks = [
 	{
@@ -38,25 +38,43 @@ var allBooks = [
 	}
 ];
 
-document.getElementById("book").innerHTML = `<tr>
-												<th>ID</th>
-												<th>BOOK TITLE</th>
-												<th>BOOK AUTHOR</th>
-												<th>BOOK GENRE</th>
-												<th>BOOK COST</th>
-											</tr>`;
+// wrapped this code into a function so that we can reload the data again
+function loadBook(){
+	document.getElementById("bookDisplay").innerHTML = `<tr>
+		<th>ID</th>
+		<th>BOOK TITLE</th>
+		<th>BOOK AUTHOR</th>
+		<th>BOOK GENRE</th>
+		<th>BOOK COST</th>
+		<th></th>
+	</tr>`;
 
+	allBooks.forEach((book)=>{
+	document.getElementById("bookDisplay").innerHTML += `
+		<tr>
+		<td>${book.id}</td>
+		<td>${book.book_title}</td>
+		<td>${book.book_author}</td>
+		<td>${book.book_genre}</td>
+		<td>${book.book_cost}</td>
+		<td><button type="button" onclick="removeBook(${book.id})">-</button></td>
+		</tr>`;
+		});	
+}
 
-allBooks.forEach((book)=>{
-document.getElementById("book").innerHTML += `
-												<tr>
-												<td>${book.id}</td>
-												<td>${book.book_title}</td>
-												<td>${book.book_author}</td>
-												<td>${book.book_genre}</td>
-												<td>${book.book_cost}</td>
-												</tr>`;
-												});
+loadBook();
+
+function removeBook(bookId){
+	alert(bookId);
+	// logic to remove the book with matching bookId
+	allBooks.forEach((book, index)=> {
+		if(book.id == bookId){
+			allBooks.splice(index, 1);
+		}
+	})
+	// reload the data
+	loadBook();
+}
 </script>
 </body>
 </html>

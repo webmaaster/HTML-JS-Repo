@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JS Objects Demo</title>
+</head>
+<body>
+<p id="display"></p>
+<h1>LIST OF BOOKS</h1>
+<table id="book" border=1>
+
+</table>
+<script>
+document.getElementById("display").innerHTML = "Hi this content is displayed using javascript!!";
+
+// a number literal is stored in a variable
+//var mark = 30;
+
+// an object literal is stored in a variable
+//var book = {
+//		id: 101,
+//		book_title: "Harry Potter and the Prisoner of Azkaban",
+//		book_author: "J.K.Rowling",
+//		book_genre: "Fiction",
+//		book_cost: 20,
+//		book_image_url: "",
+//		book_removed: false
+//}
+
+
+//console.log(book.id);
+//console.log(book.book_title);
+//console.log(book.book_author);
+//console.log(book.book_genre);
+//console.log(book.book_cost);
+
+//document.getElementById("book").innerHTML = "<tr><td>" + book.id + "</td><td>" + book.book_title + "</td><td>"+book.book_author+"</td><td>"+book.book_genre+"</td><td>"+book.book_cost+"</td></tr>"
+// make use of template strings to work with string concatenation and multiline in a easier way
+document.getElementById("book").innerHTML = `
+												<tr>
+													<th>ID</th>
+													<th>BOOK TITLE</th>
+													<th>BOOK AUTHOR</th>
+													<th>BOOK GENRE</th>
+													<th>BOOK COST</th>
+												</tr>
+												<tr>
+													<td>${book.id}</td>
+													<td>${book.book_title}</td>
+													<td>${book.book_author}</td>
+													<td>${book.book_genre}</td>
+													<td>${book.book_cost}</td>
+												</tr>`;
+												
+
+
+</script>
+</body>
+</html>

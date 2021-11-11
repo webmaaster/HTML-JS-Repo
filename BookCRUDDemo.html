@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>LIST OF BOOKS</h1>
+<table id="book" border=1>
+<script>
+var allBooks = [
+	{
+		id: 101,
+		book_title: "Harry Potter and the Prisoner of Azkaban",
+		book_author: "J.K.Rowling",
+		book_genre: "Fiction",
+		book_cost: 20,
+		book_image_url: "",
+		book_removed: false
+	},
+	{
+		id: 102,
+		book_title: "Harry Potter and the Goblet of Fire",
+		book_author: "J.K.Rowling",
+		book_genre: "Fiction",
+		book_cost: 25,
+		book_image_url: "",
+		book_removed: false
+	},
+	{
+		id: 103,
+		book_title: "Harry Potter and the Half Blood Prince",
+		book_author: "J.K.Rowling",
+		book_genre: "Fiction",
+		book_cost: 40,
+		book_image_url: "",
+		book_removed: false
+	}
+];
+
+document.getElementById("book").innerHTML = `<tr>
+												<th>ID</th>
+												<th>BOOK TITLE</th>
+												<th>BOOK AUTHOR</th>
+												<th>BOOK GENRE</th>
+												<th>BOOK COST</th>
+											</tr>`;
+
+
+allBooks.forEach((book)=>{
+document.getElementById("book").innerHTML += `
+												<tr>
+												<td>${book.id}</td>
+												<td>${book.book_title}</td>
+												<td>${book.book_author}</td>
+												<td>${book.book_genre}</td>
+												<td>${book.book_cost}</td>
+												</tr>`;
+												});
+</script>
+</body>
+</html>

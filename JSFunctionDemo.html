@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function demo</title>
+</head>
+<body>
+<input type="button" value="SQUARE" onclick="square2(10)"/><br><br>
+<button type="button" onclick="cube2(5)">CUBE</button>
+<script>
+//defined the function
+function square(num){
+	console.log(num * num);
+} 
+
+function cube(num){
+	return (num * num * num);
+}
+
+var square2 = function(num){
+	alert(num * num);
+}
+
+var cube2 = (num)=>console.log(num * num * num);
+
+//square(5);
+//var result = cube(10.5);
+//console.log("cube is : " + result);
+
+//square2(20);
+//var result2 = cube2(15);
+//console.log("cube is : " + result2);
+
+</script>
+</body>
+</html>

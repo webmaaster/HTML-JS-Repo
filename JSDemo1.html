@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Demo for working with Javascript</h1>
+<script>
+var x = 6;
+var str = "6";
+
+document.write("content writtern by java script<br>");
+document.write("Today's Date is :  " + Date());
+
+document.write("<br>x == str : " + (x == str));
+document.write("<br>x === str : " + (x === str));
+//alert("x value is : " + x);
+
+x="hello";
+//alert(x);
+// can use variables with out declaring
+msg="welcome";
+//alert(msg);
+
+var colors = ["Red", "Blue", "Green"];
+
+document.write("<br>length of colors array:" + colors.length);
+//conventional way
+for(i=0; i<colors.length; i++){
+	document.write("<br>" + colors[i] );
+}
+
+colors.push("Black");
+for(index in colors){
+	console.log(colors[index])
+}
+
+colors.pop(); // this removes the last element 
+
+colors.forEach((item)=>alert(item));
+
+console.log("-------------------")
+var removeIndex = 1;
+colors.splice(removeIndex, 1);
+colors.forEach((item)=>console.log(item));
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Book CRUD Json Demo</title>
+</head>
+<body>
+<h1>LIST OF BOOKS</h1>
+<table border="1" id="bookData">
+</table>
+<script>
+function loadBook(){
+	fetch("http://localhost:3000/books")
+	.then((response) => response.json())
+	.then((allBooks) => {
+		document.getElementById("bookData").innerHTML=`<tr><th>ID</th><th>TITTLE</th><th>AUTHOR</th><th>GENRE</th><th>COST</th>`;
+		allBooks.forEach(book => {
+			var rowData = `<tr>
+								<td>${book.id}</td>
+								<td>${book.book_title}</td>
+								<td>${book.book_author}</td>
+								<td>${book.book_genre}</td>
+								<td>${book.book_cost}</td>
+								<td><button type='button' onClick='removeBook(${book.id})'>-</button></td>
+							</tr>`;
+			
+			document.getElementById("bookData").innerHTML+=rowData;
+		})
+	})
+	.catch(data=>document.write(data));	
+}
+
+loadBook();
+
+function removeBook(bookId){
+	fetch("http://localhost:3000/books/"+bookId, {
+		method: "DELETE"
+	})
+	.then(() => loadBook())
+	.catch(data=>document.write(data));
+	
+	
+}
+
+</script>
+</body>
+</html>

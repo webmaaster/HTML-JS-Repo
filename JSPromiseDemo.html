@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+new Promise((resolve, reject)=>reject(5))
+.then(()=>console.log("this is async cose that is executed"))
+.catch((error)=>console.log(error));
+console.log("hello");
+</script>
+</body>
+</html>

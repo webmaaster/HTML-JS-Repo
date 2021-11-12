@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Promise Demo</title>
+</head>
+<body>
+<script>
+// problem due to asynchronous coding
+// there is no one after the other
+
+new Promise((resolve, reject)=>{
+	var bankSuccess = true;
+	if(bankSuccess){
+		resolve();
+	}else{
+		reject();
+	}
+})
+.then(()=>console.log("Congrats! cheque deposited successfully!!"))
+.catch(()=>console.log("Sorry!! your cheque was not processed!!"));
+
+console.log("grocery shopping started!!");
+
+console.log("starting cooking at home!!");
+
+console.log("--------------------------");
+// controlling through promises
+// bringing your next task in the then function of the promise
+new Promise((resolve, reject)=>{
+	var bankSuccess = true;
+	if(bankSuccess){
+		resolve();
+	}else{
+		reject();
+	}
+})
+.then(()=>console.log("Congrats! cheque deposited successfully!!"))
+.then(()=>console.log("grocery shopping started!!"))
+.then(()=>console.log("starting cooking at home!!"))
+.catch(()=>console.log("Sorry!! your cheque was not processed!!"));
+</script>
+</body>
+</html>
